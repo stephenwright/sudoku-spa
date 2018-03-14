@@ -1,0 +1,29 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "description": "sudoku single page application",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*test.js",
+    "lint": "eslint .",
+    "build": "yarn lint && yarn test",
+    "start": "NODE_ENV=production node index.js"
+  },
+  "author": "Stephen Wright",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.16.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.18.2",
+    "mocha": "^5.0.4",
+    "sinon": "^4.4.5"
+  }
+}
