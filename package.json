@@ -7,7 +7,7 @@
   "main": "dist/index.htm",
   "scripts": {
     "lint": "eslint src",
-    "build": "yarn lint && webpack --mode production",
+    "build": "npm run lint && npm run webpack --mode production",
     "dev": "webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "dependencies": {
