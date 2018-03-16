@@ -8,6 +8,7 @@
 
 .options input[type=button] {
   padding: 5px 10px;
+  margin-right: 10px;
 }
 
 table.board {
@@ -33,4 +34,8 @@ table.board td.c6 {
 table.board td.r3,
 table.board td.r6 {
   border-top-color: #000;
+}
+
+table.board td.active {
+  background-color: lightcyan;
 }
