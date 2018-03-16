@@ -2,16 +2,19 @@
   "name": "sudoku-spa",
   "version": "1.0.0",
   "description": "sudoku single page application",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test/*test.js",
-    "lint": "eslint src",
-    "build": "yarn lint && yarn test && webpack",
-    "dev": "webpack-dev-server --config ./webpack.config.js --mode development"
-  },
   "author": "Stephen Wright",
   "license": "ISC",
-  "dependencies": {},
+  "main": "dist/index.htm",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "yarn lint && webpack --mode production",
+    "dev": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -21,11 +24,10 @@
     "chai-http": "^3.0.0",
     "css-loader": "^0.28.10",
     "eslint": "^4.18.2",
+    "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.7.0",
     "mocha": "^5.0.4",
     "node-sass": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0",
     "sass-loader": "^6.0.7",
     "sinon": "^4.4.5",

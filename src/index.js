@@ -1,11 +1,10 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const PropTypes = require('prop-types');
 const axios = require('axios');
 
 const title = 'Sudoku SPA';
 const sudokuEndpoint = 'http://localhost:3000/sudoku';
-
-const a = 1;
 
 class Cell extends React.Component {
   render() {
@@ -13,17 +12,16 @@ class Cell extends React.Component {
     return <td className={clss}>{this.props.val}</td>;
   }
 }
+Cell.propTypes = {
+  row: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired,
+  val: PropTypes.number.isRequired,
+};
 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {board: []};
-    this.getBoard();
-  }
-
   render() {
     const rows = [];
-    const b = this.state.board;
+    const b = this.props.board;
     for (let r = 0; r < b.length; r += 9) {
       let cells = [];
       for (let c = 0; c < 9; ++c) {
@@ -33,30 +31,45 @@ class Board extends React.Component {
       const key = 'r' + r;
       rows.push(<tr key={key}>{cells}</tr>);
     }
-    return <table className='board'><tbody>{rows}</tbody></table>;
+    return (
+      <table className='board'>
+        <tbody>
+          {rows}
+        </tbody>
+      </table>
+    );
+  }
+}
+Board.propTypes = {
+  board: PropTypes.array.isRequired,
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      board: []
+    };
+    this.reload();
   }
 
-  getBoard(){
+  reload() {
     axios.get(sudokuEndpoint + '/board')
       .then(res => {
         this.setState({ board: res.data });
       });
   }
 
-  reload(){
-    this.getBoard();
-  }
-}
-
-class App extends React.Component {
   render() {
-    return <div>
-      <h1>{title}</h1>
-      <div className='options'>
-        <input type='button' value='Reload' />
+    return (
+      <div>
+        <h1>{title}</h1>
+        <div className='options'>
+          <input type='button' value='Reload' onClick={this.reload.bind(this)} />
+        </div>
+        <Board board={this.state.board} />
       </div>
-      <Board />
-    </div>;
+    );
   }
 }
 

@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.jsx',
+    './src/index.js',
     './src/index.scss'
   ],
   output: {
@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js(x)?)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
