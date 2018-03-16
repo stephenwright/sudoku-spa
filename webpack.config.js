@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.js',
-    './src/index.scss'
+    './src/index.js'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -21,8 +21,11 @@ module.exports = {
       },
       {
         test:/\.(s*)css$/,
-        use: ['css-loader','sass-loader'],
-        exclude: /node_modules/
+        use: ['css-loader', 'sass-loader']
+      },
+      {
+        test: /\.htm(l)?$/,
+        use: 'raw-loader'
       }
     ]
   },

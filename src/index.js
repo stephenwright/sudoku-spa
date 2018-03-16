@@ -4,7 +4,7 @@ const PropTypes = require('prop-types');
 const axios = require('axios');
 
 const title = 'Sudoku SPA';
-const sudokuEndpoint = 'http://localhost:3000/sudoku';
+const sudokuEndpoint = 'http://localhost:8080/sudoku';
 
 class Cell extends React.Component {
   render() {
