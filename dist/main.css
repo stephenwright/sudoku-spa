@@ -1,0 +1,36 @@
+
+.options {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #eee;
+}
+
+.options input[type=button] {
+  padding: 5px 10px;
+}
+
+table.board {
+  border: 1px solid #000;
+  border-spacing: unset;
+}
+
+table.board td {
+  padding: 9px 15px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+table.board td:hover {
+  background-color: lightyellow;
+}
+
+table.board td.c3,
+table.board td.c6 {
+  border-left-color: #000;
+}
+
+table.board td.r3,
+table.board td.r6 {
+  border-top-color: #000;
+}
