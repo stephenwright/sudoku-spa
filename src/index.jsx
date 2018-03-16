@@ -5,6 +5,8 @@ const axios = require('axios');
 const title = 'Sudoku SPA';
 const sudokuEndpoint = 'http://localhost:3000/sudoku';
 
+const a = 1;
+
 class Cell extends React.Component {
   render() {
     const clss = `r${this.props.row} c${this.props.col}`;
